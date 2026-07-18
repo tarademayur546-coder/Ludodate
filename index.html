@@ -1,118 +1,277 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Ludo Tonight ❤️</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
 
 body{
+
+margin:0;
 height:100vh;
 overflow:hidden;
+
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#fbc2eb,#a18cd1);
-background-size:400% 400%;
-animation:bg 10s infinite alternate;
+
+background:linear-gradient(45deg,#ff9a9e,#fad0c4,#fbc2eb,#a18cd1);
+
+font-family:Arial;
+
 }
 
-@keyframes bg{
-0%{background-position:0% 50%;}
-100%{background-position:100% 50%;}
-}
+#box{
 
-.container{
 text-align:center;
-padding:20px;
-position:relative;
-width:100%;
+color:white;
+
 }
 
-#message{
-font-size:32px;
-font-weight:bold;
-color:white;
-transition:.8s;
+h1{
+
+font-size:35px;
+transition:.5s;
+
 }
 
 .grow{
+
 animation:grow 3s forwards;
+
 }
 
 @keyframes grow{
-0%{transform:scale(1);}
-100%{transform:scale(2.4);}
+
+from{
+
+transform:scale(1);
+
+}
+
+to{
+
+transform:scale(2);
+
+}
+
 }
 
 #ghost{
-font-size:70px;
-position:absolute;
-left:-100px;
-top:40%;
+
 display:none;
-animation:ghostMove 3s forwards;
+font-size:80px;
+
+animation:ghost 2s infinite alternate;
+
 }
 
-@keyframes ghostMove{
+@keyframes ghost{
+
+from{
+
+transform:translateY(-10px);
+
+}
+
 to{
-left:50%;
-transform:translateX(-50%);
-}
+
+transform:translateY(10px);
+
 }
 
-#rosogolla{
-font-size:120px;
-opacity:.18;
-position:absolute;
-top:20%;
-left:50%;
-transform:translateX(-50%);
+}
+
+#ros{
+
 display:none;
+
+font-size:120px;
+
 animation:float 2s infinite alternate;
+
 }
 
 @keyframes float{
-from{transform:translateX(-50%) translateY(0);}
-to{transform:translateX(-50%) translateY(-15px);}
+
+from{
+
+transform:translateY(-10px);
+
 }
 
-#buttons{
-display:none;
-margin-top:35px;
+to{
+
+transform:translateY(10px);
+
+}
+
 }
 
 button{
-padding:15px 28px;
+
+padding:15px 30px;
+
 font-size:20px;
+
+margin:10px;
+
 border:none;
-border-radius:40px;
+
+border-radius:30px;
+
 cursor:pointer;
-margin:12px;
-transition:.3s;
+
 }
 
 #yes{
-background:#00c853;
+
+background:green;
+
 color:white;
+
 }
 
 #no{
-background:#ff1744;
+
+background:red;
+
 color:white;
+
 position:absolute;
+
+display:none;
+
 }
 
-.hearts{
-position:absolute;
-font-size:25px;
-animation:up 5s linear infinite;
-opacity:.
+#buttons{
+
+display:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="box">
+
+<div id="ghost">👻</div>
+
+<div id="ros">🍡</div>
+
+<h1 id="text">
+
+Hello Gaureyyyyyy.... ❤️
+
+</h1>
+
+<div id="buttons">
+
+<button id="yes">
+
+Yes ❤️
+
+</button>
+
+<button id="no">
+
+No 😝
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const text=document.getElementById("text");
+
+const ghost=document.getElementById("ghost");
+
+const ros=document.getElementById("ros");
+
+const buttons=document.getElementById("buttons");
+
+const yes=document.getElementById("yes");
+
+const no=document.getElementById("no");
+
+text.classList.add("grow");
+setTimeout(()=>{
+
+text.classList.remove("grow");
+
+ghost.style.display="block";
+
+text.innerHTML="Ek atrupta aatma";
+
+},3000);
+
+setTimeout(()=>{
+
+ghost.style.display="none";
+
+ros.style.display="block";
+
+text.innerHTML="Amor Rosogolla";
+
+},6000);
+
+setTimeout(()=>{
+
+ros.style.display="none";
+
+text.innerHTML="Will you like to play Ludo tonight? 🎲❤️";
+
+buttons.style.display="block";
+
+no.style.display="inline-block";
+
+no.style.left="55%";
+
+no.style.top="65%";
+
+},9000);
+
+function moveNo(){
+
+let x=Math.random()*(window.innerWidth-120);
+
+let y=Math.random()*(window.innerHeight-80);
+
+no.style.left=x+"px";
+
+no.style.top=y+"px";
+
+}
+
+no.addEventListener("mouseover",moveNo);
+
+no.addEventListener("click",moveNo);
+
+yes.onclick=function(){
+
+document.body.innerHTML=
+
+"<div style='display:flex;height:100vh;justify-content:center;align-items:center;flex-direction:column;background:#ffb6d9;font-family:Arial;text-align:center;'>"+
+
+"<h1>🎉 Yayyyyy ❤️</h1>"+
+
+"<h2>Be ready at <span style=color:red>10:30 PM</span> tonight.</h2>"+
+
+"<h2>I'll be waiting for you 🎲🥰</h2>"+
+
+"</div>";
+</script>
+
+</body>
+</html>
+};
